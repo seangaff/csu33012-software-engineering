@@ -48,3 +48,28 @@ def findLCA(root, n1, n2):
 	if (v[0] and v[1] or v[0] and find(lca, n2) or v[1] and
 		find(lca, n1)):
 		return lca
+
+	return None
+
+
+#Test LCA functions
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left.left = Node(4)
+root.left.right = Node(5)
+root.right.left = Node(6)
+root.right.right = Node(7)
+ 
+lca = findLCA(root, 4, 5)
+ 
+if lca is not None:
+    print ("LCA(4, 5) = ", lca.key)
+else :
+    print ("Keys are not present")
+ 
+lca = findLCA(root, 4, 10)
+if lca is not None:
+    print ("LCA(4,10) = ", lca.key)
+else:
+    print ("Keys are not present")
