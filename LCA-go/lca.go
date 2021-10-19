@@ -1,11 +1,11 @@
 //Go implementation of LCA of two nodes on a binary tree.
 //Code is adapted from compilethecode.com/
-package main
+package lca
 
 import "fmt"
 
 type Node struct {
-	val   int
+	key   int
 	left  *Node
 	right *Node
 }
@@ -14,9 +14,8 @@ func inorderRecursive(root *Node) {
 	if root == nil {
 		return
 	}
-
 	inorderRecursive(root.left)
-	fmt.Printf("%d \n", root.val)
+	fmt.Printf("%d \n", root.key)
 	inorderRecursive(root.right)
 }
 
@@ -24,21 +23,18 @@ func leastCommonAncestorInBST(root *Node, n1 int, n2 int) int {
 	if root == nil {
 		return -1
 	}
-
-	if n1 > root.val && n2 > root.val {
+	if n1 > root.key && n2 > root.key {
 		return leastCommonAncestorInBST(root.right, n1, n2)
 	}
-
-	if n1 < root.val && n2 < root.val {
+	if n1 < root.key && n2 < root.key {
 		return leastCommonAncestorInBST(root.left, n1, n2)
 	}
-
-	return root.val
+	return root.key
 }
 
-//test LCA functions
+//test LCA functions - Original
+/*
 func main() {
-
 	root := Node{100, nil, nil}
 	root.left = &Node{50, nil, nil}
 	root.right = &Node{150, nil, nil}
@@ -55,3 +51,4 @@ func main() {
 	fmt.Println("LAC is", result)
 
 }
+*/
